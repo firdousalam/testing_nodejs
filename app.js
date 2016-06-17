@@ -6,7 +6,7 @@ var express			= require("express"),
 // default api
 
 app.get('/', function (req, res) {
-  res.send('Hello World!');
+  res.send('hi, we are running in node server');
 });
 
 // the simple api to generate all the posiable permutation of six digit ticket of the provided numbers
