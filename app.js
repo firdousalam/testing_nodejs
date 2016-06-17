@@ -1,12 +1,10 @@
-var express		= require("express"),
-	fs 		= require('fs'),
-  	_		= require('underscore'),
-  	Combinatorics 	= require('js-combinatorics');
-
-
-var app = express();
-
+var express			= require("express"),
+	fs 				= require('fs'),
+  	_				= require('underscore'),
+  	Combinatorics 	= require('js-combinatorics'),
+	 app 			= express();
 // default api
+
 app.get('/', function (req, res) {
   res.send('Hello World!');
 });
@@ -28,23 +26,23 @@ app.get('/read_number_of_previous_winner', function (req, res) {
 app.get('/winning_prediction_of_user', function (req, res) {
   	
   	fs.readFile("winner.txt", "utf8", function (error, data) {
-  		var winner_numbers				= data.split("\n"),
-  			user_provided_numbers 			= ["3","5","12","20","24","33"],
-  			lottery_result_array			= '',
-  			total_winning_number			= [],
-  			total_number_of_draw_drawn 		= winner_numbers.length,
-  			no_of_time_given_one_correct_number   	= 0,
-  			no_of_time_given_two_correct_number	= 0,
+  		var winner_numbers							= data.split("\n"),
+  			user_provided_numbers 					= ["3","5","12","20","24","33"],
+  			lottery_result_array					= '',
+  			total_winning_number					= [],
+  			total_number_of_draw_drawn 				= winner_numbers.length,
+  			no_of_time_given_one_correct_number 	= 0,
+  			no_of_time_given_two_correct_number		= 0,
   			no_of_time_given_three_correct_number	= 0,
   			no_of_time_given_four_correct_number	= 0,
   			no_of_time_given_five_correct_number	= 0,
-  			no_of_time_hit_the_jackpot		= 0,
-  			details_with_one_correct_number		= [],
-  			details_with_two_correct_number		= [],
-  			details_with_three_correct_number	= [],
-  			details_with_four_correct_number	= [],
-  			details_with_five_correct_number	= [],
-  			details_with_six_correct_number		= [];
+  			no_of_time_hit_the_jackpot				= 0,
+  			details_with_one_correct_number			= [],
+  			details_with_two_correct_number			= [],
+  			details_with_three_correct_number		= [],
+  			details_with_four_correct_number		= [],
+  			details_with_five_correct_number		= [],
+  			details_with_six_correct_number			= [];
 
   		//taking all the winning numbers from the winner lottery
         for(i=0;i<winner_numbers.length;i++)
@@ -75,9 +73,10 @@ app.get('/winning_prediction_of_user', function (req, res) {
 	        		}
 	        	}
 	        	var result_json	={
-			        		"date"		: lottery_result_array[0],
+			        		"date"			: lottery_result_array[0],
 			        		"winnig_numbers": winning_number
 			        	 };
+
 	        	total_winning_number.push(result_json);
 	        }
         }
@@ -88,72 +87,82 @@ app.get('/winning_prediction_of_user', function (req, res) {
         	{
         		no_of_time_given_one_correct_number++;
         		details_with_one_correct_number.push({	
-								"provided_number" : ser_provided_numbers,
+        							"provided_number" : user_provided_numbers,
         							"lottery_number"  : total_winning_number[k],
-								"winning_number"  : winning_numbers
+        							"winning_number"  : winning_numbers
+>>>>>>> 0d8a72b9412cdca77c372e14942f7e1bce165418
         							});
         	}
         	if(winning_numbers.length==2)
         	{
         		no_of_time_given_two_correct_number++;
-        		details_with_two_correct_number.push({	"provided_number" : user_provided_numbers,
-								"lottery_number"  : total_winning_number[k],
-								"winning_number"  : winning_numbers
-							     });
+        		details_with_two_correct_number.push({	
+        							"provided_number" : user_provided_numbers,
+        							"lottery_number"  : total_winning_number[k],
+        							"winning_number"  : winning_numbers
+        							});
+>>>>>>> 0d8a72b9412cdca77c372e14942f7e1bce165418
         	}
         	if(winning_numbers.length==3)
         	{
         		no_of_time_given_three_correct_number++;
         		details_with_three_correct_number.push({
-								"provided_number" : user_provided_numbers,
+        							"provided_number" : user_provided_numbers,
         							"lottery_number"  : total_winning_number[k],
-								"winning_number"  : winning_numbers
+        							"winning_number"  : winning_numbers
+>>>>>>> 0d8a72b9412cdca77c372e14942f7e1bce165418
         							});
         	}
         	if(winning_numbers.length==4)
         	{
         		no_of_time_given_four_correct_number++;
-        		details_with_four_correct_number.push({	"provided_number" : user_provided_numbers,
-       								"lottery_number"  : total_winning_number[k],
-								"winning_number"  : winning_numbers
+        		details_with_four_correct_number.push({	
+        							"provided_number" : user_provided_numbers,
+        							"lottery_number"  : total_winning_number[k],
+        							"winning_number"  : winning_numbers
+>>>>>>> 0d8a72b9412cdca77c372e14942f7e1bce165418
         							});
         	}
         	if(winning_numbers.length==5)
         	{
         		no_of_time_given_five_correct_number++;
-        		details_with_five_correct_number.push({	"provided_number" : user_provided_numbers,
-        							"lottery_number"  : total_winning_number[k],								"winning_number"  : winning_numbers
+        		details_with_five_correct_number.push({	
+        							"provided_number" : user_provided_numbers,
+        							"lottery_number"  : total_winning_number[k],
+        							"winning_number"  : winning_numbers
         							});
         	}
         	if(winning_numbers.length==6)
         	{
         		no_of_time_hit_the_jackpot++;
-        		details_with_six_correct_number.push({	"provided_number" : user_provided_numbers,
+        		details_with_six_correct_number.push({
+        							"provided_number" : user_provided_numbers,
         							"lottery_number"  : total_winning_number[k],
         							"winning_number"  : winning_numbers
         							});
         	}
         }
+        // creating the respose json
         var response = {};
-        response.loterry_number_provided_by_customer = user_provided_numbers;
+        response.loterry_number_provided_by_customer 	= user_provided_numbers;
 
-        response.no_of_time_hit_one_correct_number	 = no_of_time_given_one_correct_number;
-        response.details_of_one_correct_loterry		 = details_with_one_correct_number;
+        response.no_of_time_hit_one_correct_number	= no_of_time_given_one_correct_number;
+        response.details_of_one_correct_loterry		= details_with_one_correct_number;
 
-        response.no_of_time_hit_two_correct_number	 = no_of_time_given_two_correct_number;
-        response.details_of_two_correct_loterry		 = details_with_two_correct_number;
+        response.no_of_time_hit_two_correct_number	= no_of_time_given_two_correct_number;
+        response.details_of_two_correct_loterry		= details_with_two_correct_number;
 
-        response.no_of_time_hit_three_correct_number = no_of_time_given_three_correct_number;
-        response.details_of_three_correct_loterry	 = details_with_three_correct_number;
+        response.no_of_time_hit_three_correct_number 	= no_of_time_given_three_correct_number;
+        response.details_of_three_correct_loterry	= details_with_three_correct_number;
 
-      	response.no_of_time_hit_four_correct_number	 = no_of_time_given_four_correct_number;
-        response.details_with_four_correct_number	 = details_with_four_correct_number;
+      	response.no_of_time_hit_four_correct_number	= no_of_time_given_four_correct_number;
+        response.details_with_four_correct_number	= details_with_four_correct_number;
 
-        response.no_of_time_hit_five_correct_number	 = no_of_time_given_five_correct_number;
-        response.details_with_five_correct_number	 = details_with_five_correct_number;
+        response.no_of_time_hit_five_correct_number	= no_of_time_given_five_correct_number;
+        response.details_with_five_correct_number	= details_with_five_correct_number;
 
-        response.no_of_time_hit_the_jackpot			 = no_of_time_hit_the_jackpot;
-        response.details_with_six_correct_number	 = details_with_six_correct_number;
+        response.no_of_time_hit_the_jackpot		= no_of_time_hit_the_jackpot;
+        response.details_with_six_correct_number	= details_with_six_correct_number;
 
 
         res.send(response);
