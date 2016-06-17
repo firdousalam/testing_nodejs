@@ -22,9 +22,9 @@ app.get('/read_number_of_previous_winner', function (req, res) {
 app.get('/winning_prediction_of_user', function (req, res) {
   	
   	fs.readFile("winner.txt", "utf8", function (error, data) {
-  		var winner_numbers				= data.split("\n");
-  		var user_provided_numbers 			= ["3","5","12","20","24","33"];
-  		var lottery_result_array			= '',
+  		var winner_numbers				= data.split("\n"),
+  			user_provided_numbers 			= ["3","5","12","20","24","33"],
+  			lottery_result_array			= '',
   			total_winning_number			= [],
   			total_number_of_draw_drawn 		= winner_numbers.length,
   			no_of_time_given_one_correct_number   	= 0,
