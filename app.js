@@ -90,7 +90,6 @@ app.get('/winning_prediction_of_user', function (req, res) {
         							"provided_number" : user_provided_numbers,
         							"lottery_number"  : total_winning_number[k],
         							"winning_number"  : winning_numbers
->>>>>>> 0d8a72b9412cdca77c372e14942f7e1bce165418
         							});
         	}
         	if(winning_numbers.length==2)
@@ -101,7 +100,6 @@ app.get('/winning_prediction_of_user', function (req, res) {
         							"lottery_number"  : total_winning_number[k],
         							"winning_number"  : winning_numbers
         							});
->>>>>>> 0d8a72b9412cdca77c372e14942f7e1bce165418
         	}
         	if(winning_numbers.length==3)
         	{
@@ -110,7 +108,6 @@ app.get('/winning_prediction_of_user', function (req, res) {
         							"provided_number" : user_provided_numbers,
         							"lottery_number"  : total_winning_number[k],
         							"winning_number"  : winning_numbers
->>>>>>> 0d8a72b9412cdca77c372e14942f7e1bce165418
         							});
         	}
         	if(winning_numbers.length==4)
@@ -120,7 +117,6 @@ app.get('/winning_prediction_of_user', function (req, res) {
         							"provided_number" : user_provided_numbers,
         							"lottery_number"  : total_winning_number[k],
         							"winning_number"  : winning_numbers
->>>>>>> 0d8a72b9412cdca77c372e14942f7e1bce165418
         							});
         	}
         	if(winning_numbers.length==5)
