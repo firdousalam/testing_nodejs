@@ -141,7 +141,7 @@ app.get('/winning_prediction_of_user', function (req, res) {
         // creating the respose json
         var response = {};
         response.loterry_number_provided_by_customer 	= user_provided_numbers;
-
+	response.total_no_of_time_lottery_was_drawn	= total_number_of_draw_drawn;
         response.no_of_time_hit_one_correct_number	= no_of_time_given_one_correct_number;
         response.details_of_one_correct_loterry		= details_with_one_correct_number;
 
